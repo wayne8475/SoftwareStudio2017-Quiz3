@@ -1,0 +1,16 @@
+.grid{
+	display: block;
+	width: 100vw;
+}
+table{
+	margin: 1.5rem auto;
+    border: 1px solid black;
+}
+td{
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+
+	text-align: center;
+	font-size: 24pt;
+}
