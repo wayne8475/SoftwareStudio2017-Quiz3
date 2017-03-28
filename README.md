@@ -11,19 +11,17 @@
 
 ### 3. Turn component can present which turn('O' / 'X') it is now. (15%)
 
-### 4. Can judge the outcome. (win / draw) (20%)
+### 4. Can judge the outcome and present score of two side on Role component. (win (+1) / draw (+0)) (35%)
+And you need to reset all cell when the game comes to a close.
 
-### 5. Role component can present score of two side. (15%)
+### 5. Reset all cell and role when reset button is clicked. (15%)
 
-### 6. Reset all cell and role when reset button is clicked. (15%)
-
-### 7. Whole game works well. (10%)
-(ex. can't double click cell)
+### 6. Whole game works well. (10%)
 
 ### Bonus (10%)
-Choose one
+Choose one to get 10% bonus.
 1. Decorate the game by using some css.
-2. Add another function to improve the basic version.
+2. Add additional function to improve the basic version.
 
 ## Submission
 Open a new merge request when you finished your quiz. <br />
