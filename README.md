@@ -6,7 +6,8 @@
 
 ## Grading
 ### `0. You need to build the game use components.`
-If you don't use components, you will get 0 point.
+If you don't use components, you will get 0 point. <br/>
+And you must use webpack to compile your js code into one js file(main.bundle.js), and import main.bundle.js in your html ONLY.
 ### 1. Can present 'O' / 'X' when clicked cell. (10%)
 
 ### 2. Can take turn (O->X->O->X) (15%)
