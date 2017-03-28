@@ -5,20 +5,21 @@
 ![Component](img/component.png)
 
 ## Grading
-### `0. You need to build the game use components.`
-If you don't use components, you will get 0 point. <br/>
-And you must use webpack to compile your js code into one js file(main.bundle.js). In your html, you should import main.bundle.js ONLY.
+### `0. You need to build the game using components.`
+If you don't use components, you will get 0 points. <br/>
+And you must use webpack to compile your js and css code into one js file(main.bundle.js). In your html, you should import main.bundle.js ONLY (and vendor.bundle.js if needed).
+<b>Don't import your component.js and component.css.</b>
 
 ### 1. Can present 'O' / 'X' when the cell is clicked. (10%)
 
-### 2. Can take turn (O->X->O->X) (15%)
+### 2. Can alternate between turns (O->X->O->X) (15%)
 
-### 3. Turn component can present current turn('O' / 'X'). (15%)
+### 3. Turn component can present which turn ('O' / 'X') it is now. (15%)
 
-### 4. Can judge the outcome and present score of two side on Role component. (win (+1) / draw (+0)) (35%)
+### 4. Can judge the outcome (check if someone wins) and present score of two side on Role component. (win (+1) / draw (+0)) (35%)
 And you need to reset all cell when the game comes to a close.
 
-### 5. Reset all cell and role when reset button is clicked. (15%)
+### 5. Reset all cells and role points when reset button is clicked. (15%)
 
 ### 6. Whole game works well. (10%)
 
