@@ -33,6 +33,7 @@ But if you can layout your components as the image above, you will get at least 
 ## Example
 https://www.google.com.tw/search?q=tic+tac+toe
 
+## Sample structure
 ![Structure](img/structure.png)
 
 ## Submission
