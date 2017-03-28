@@ -18,10 +18,13 @@ And you need to reset all cell when the game comes to a close.
 
 ### 6. Whole game works well. (10%)
 
-### Bonus (10%)
-Choose one to get 10% bonus.
-1. Decorate the game by using some css.
-2. Add additional function to improve the basic version.
+### Bonus (10% at most)
+1. Decorate the game by using some css. (10%)
+2. Decorate the game by using some animation. (10%)
+3. Notify user who wins the game.(Can't use alert / console.log) (5%)
+
+## Example
+https://www.google.com.tw/search?q=tic+tac+toe
 
 ## Submission
 Open a new merge request when you finished your quiz. <br />
