@@ -7,7 +7,7 @@
 ## Grading
 ### `0. You need to build the game using components.`
 If you don't use components, you will get 0 points. <br/>
-And you must use webpack to compile your js and css code into one js file(main.bundle.js). In your html, you should import main.bundle.js ONLY (and vendor.bundle.js if needed).
+And you must use webpack to compile your js and css code into one js file(main.bundle.js). In your html, you should import main.bundle.js ONLY (and vendor.bundle.js if needed). <br/>
 <b>Don't import your component.js and component.css.</b>
 
 ### 1. Can present 'O' / 'X' when the cell is clicked. (10%)
