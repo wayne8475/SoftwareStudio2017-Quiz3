@@ -9,25 +9,30 @@ export default class Cell extends Component {
 
     constructor(root) {   
         super(root);
-        this.occuypied = 0;
         root.addEventListener("click", this.handleDomClick.bind(this));
+        this.occupied = 0;
+        this.root.textContent =' ';
         this.reset();
     }
 
     reset() {
-        this.occuypied = 0;
+        this.occupied = 0;
         this.root.textContent = ' ';
+        this.root.style.color = 'lightgreen';
     }
 
     handleDomClick() {
         this.fire('click');
+        
     }
     turnX(){
         this.root.textContent = 'X';
+        this.root.style.color = 'grey';
         this.occupied = 1;
     }
     turnO(){
         this.root.textContent = 'O';
+        this.root.style.color = 'white';
         this.occupied = 2;
     }
 }

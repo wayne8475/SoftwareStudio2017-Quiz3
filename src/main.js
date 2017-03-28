@@ -36,7 +36,7 @@ export default class Main extends Component {
         this.grid.reset();
     }
     handleDraw(firer){
-        this.banner.draw();
+        this.banner.turn.reset();
         this.grid.reset();
     }
 

@@ -1,7 +1,9 @@
 .turn{
 	display: block;
-	margin: 0px 40vw;
-	margin-top: 30px;
-	width: 100%;
-	
+	color: #bbb;
+	width: 50%;
+	margin: 30px auto 0px auto;
+	font-family: 'Revalia', cursive;
+	font-size: 30px;
+	text-align : center;
 }

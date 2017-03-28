@@ -1,0 +1,13 @@
+.cell {    
+    background: lightgreen;
+    margin: 1.66%;
+    border-color: #232323;
+    border-block-end-color: #232323;
+    border-radius: 1rem;
+    transition: all 0.6s;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    cursor: pointer;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3rem;
+}

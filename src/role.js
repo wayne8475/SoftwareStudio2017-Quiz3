@@ -21,10 +21,25 @@ export default class Role extends Component{
         }
     }
 
-    win(){
+    win(player){
     	this.score++; 
+        if(player == 1){
+        	this.root.textContent = "X: " + this.score;
+            this.root.style.color = 'red';
+        }
+        else{
+        	this.root.textContent = "O: " + this.score;
+            this.root.style.color = 'red';
+        }
     }
-    reset(){
+    reset(player){
         this.score = 0;
+        this.root.style.color = 'blue';
+        if(player == 1){
+        	this.root.textContent = "X: -";
+        }
+        else{
+        	this.root.textContent = "O: -";
+        }
     }
 }

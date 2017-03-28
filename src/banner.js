@@ -18,29 +18,27 @@ export default class Banner extends Component {
         this.role_O = new Role(Roles[1], 2);
         this.turn = new Turn(root.querySelector('.turn'));
 
-        this.role_X.reset();
-        this.role_O.reset();
-        this.turn.reset();
+        this.reward = document.querySelector(".reward");
+
+        this.reset();
     }
 
     reset() {
-        this.role_X.reset();
-        this.role_O.reset();
+        this.role_X.reset(1);
+        this.role_O.reset(2);
         this.turn.reset();
     }
     changeTurn(){
         this.turn.change();
-    }
-    draw(){
-        this.turn.reset();
+        this.role_X.root.style.color = 'blue';
+        this.role_O.root.style.color = 'blue';
     }
     win(winner){
-        this.turn.reset();
-        if(winner === 1){
-            this.role_X.win();
+        if(winner == 1){
+            this.role_X.win(1);
         }
         else{
-            this.role_X.win();
+            this.role_O.win(2);
         }
     }
 }

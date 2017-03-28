@@ -18,15 +18,14 @@ export default class Grid extends Component {
             const cell = new Cell(el);
             cell.on('click', this.handleCellClick.bind(this));
             this.cells.push(cell);
-        }
-        for (let cell of this.cells)
-            cell.reset();        
+        }   
     }
 
     reset() {
         this.turn = 1;
-        for (let cell of this.cells)
-            cell.reset();
+        for(let i=0; i<9; i++){
+          this.cells[i].reset();
+        }
     }
 
     handleCellClick(firer) {
@@ -109,7 +108,7 @@ export default class Grid extends Component {
         return false;
     }
     isDraw(){
-        for (let cell of this.cells){
+        for(let i=0; i<9; i++){
             if(this.cells[i].occupied == 0){
                 return false;
             }

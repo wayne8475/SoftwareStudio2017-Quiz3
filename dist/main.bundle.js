@@ -542,37 +542,33 @@ var Banner = function (_Component) {
         _this.role_O = new __WEBPACK_IMPORTED_MODULE_1__role_js__["a" /* default */](Roles[1], 2);
         _this.turn = new __WEBPACK_IMPORTED_MODULE_2__turn_js__["a" /* default */](root.querySelector('.turn'));
 
-        _this.role_X.reset();
-        _this.role_O.reset();
-        _this.turn.reset();
+        _this.reward = document.querySelector(".reward");
+
+        _this.reset();
         return _this;
     }
 
     _createClass(Banner, [{
         key: 'reset',
         value: function reset() {
-            this.role_X.reset();
-            this.role_O.reset();
+            this.role_X.reset(1);
+            this.role_O.reset(2);
             this.turn.reset();
         }
     }, {
         key: 'changeTurn',
         value: function changeTurn() {
             this.turn.change();
-        }
-    }, {
-        key: 'draw',
-        value: function draw() {
-            this.turn.reset();
+            this.role_X.root.style.color = 'blue';
+            this.role_O.root.style.color = 'blue';
         }
     }, {
         key: 'win',
         value: function win(winner) {
-            this.turn.reset();
-            if (winner === 1) {
-                this.role_X.win();
+            if (winner == 1) {
+                this.role_X.win(1);
             } else {
-                this.role_X.win();
+                this.role_O.win(2);
             }
         }
     }]);
@@ -649,31 +645,6 @@ var Grid = function (_Component) {
             }
         }
 
-        var _iteratorNormalCompletion2 = true;
-        var _didIteratorError2 = false;
-        var _iteratorError2 = undefined;
-
-        try {
-            for (var _iterator2 = _this.cells[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                var _cell = _step2.value;
-
-                _cell.reset();
-            }
-        } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-        } finally {
-            try {
-                if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                    _iterator2.return();
-                }
-            } finally {
-                if (_didIteratorError2) {
-                    throw _iteratorError2;
-                }
-            }
-        }
-
         return _this;
     }
 
@@ -681,29 +652,8 @@ var Grid = function (_Component) {
         key: 'reset',
         value: function reset() {
             this.turn = 1;
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
-
-            try {
-                for (var _iterator3 = this.cells[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                    var cell = _step3.value;
-
-                    cell.reset();
-                }
-            } catch (err) {
-                _didIteratorError3 = true;
-                _iteratorError3 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                        _iterator3.return();
-                    }
-                } finally {
-                    if (_didIteratorError3) {
-                        throw _iteratorError3;
-                    }
-                }
+            for (var i = 0; i < 9; i++) {
+                this.cells[i].reset();
             }
         }
     }, {
@@ -789,33 +739,11 @@ var Grid = function (_Component) {
     }, {
         key: 'isDraw',
         value: function isDraw() {
-            var _iteratorNormalCompletion4 = true;
-            var _didIteratorError4 = false;
-            var _iteratorError4 = undefined;
-
-            try {
-                for (var _iterator4 = this.cells[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                    var cell = _step4.value;
-
-                    if (this.cells[i].occupied == 0) {
-                        return false;
-                    }
-                }
-            } catch (err) {
-                _didIteratorError4 = true;
-                _iteratorError4 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                        _iterator4.return();
-                    }
-                } finally {
-                    if (_didIteratorError4) {
-                        throw _iteratorError4;
-                    }
+            for (var i = 0; i < 9; i++) {
+                if (this.cells[i].occupied == 0) {
+                    return false;
                 }
             }
-
             return true;
         }
     }]);
@@ -867,7 +795,7 @@ var Reset = function (_Component) {
     _createClass(Reset, [{
         key: 'handleDomClick',
         value: function handleDomClick() {
-            this.fire('click');
+            this.fire('resetClick');
         }
     }]);
 
@@ -937,8 +865,9 @@ var Cell = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Cell.__proto__ || Object.getPrototypeOf(Cell)).call(this, root));
 
-        _this.occuypied = 0;
         root.addEventListener("click", _this.handleDomClick.bind(_this));
+        _this.occupied = 0;
+        _this.root.textContent = ' ';
         _this.reset();
         return _this;
     }
@@ -946,8 +875,9 @@ var Cell = function (_Component) {
     _createClass(Cell, [{
         key: 'reset',
         value: function reset() {
-            this.occuypied = 0;
+            this.occupied = 0;
             this.root.textContent = ' ';
+            this.root.style.color = 'lightgreen';
         }
     }, {
         key: 'handleDomClick',
@@ -958,12 +888,14 @@ var Cell = function (_Component) {
         key: 'turnX',
         value: function turnX() {
             this.root.textContent = 'X';
+            this.root.style.color = 'grey';
             this.occupied = 1;
         }
     }, {
         key: 'turnO',
         value: function turnO() {
             this.root.textContent = 'O';
+            this.root.style.color = 'white';
             this.occupied = 2;
         }
     }]);
@@ -1047,7 +979,7 @@ var Main = function (_Component) {
     }, {
         key: 'handleDraw',
         value: function handleDraw(firer) {
-            this.banner.draw();
+            this.banner.turn.reset();
             this.grid.reset();
         }
     }]);
@@ -1111,13 +1043,26 @@ var Role = function (_Component) {
 
     _createClass(Role, [{
         key: 'win',
-        value: function win() {
+        value: function win(player) {
             this.score++;
+            if (player == 1) {
+                this.root.textContent = "X: " + this.score;
+                this.root.style.color = 'red';
+            } else {
+                this.root.textContent = "O: " + this.score;
+                this.root.style.color = 'red';
+            }
         }
     }, {
         key: 'reset',
-        value: function reset() {
+        value: function reset(player) {
             this.score = 0;
+            this.root.style.color = 'blue';
+            if (player == 1) {
+                this.root.textContent = "X: -";
+            } else {
+                this.root.textContent = "O: -";
+            }
         }
     }]);
 
@@ -1162,7 +1107,7 @@ var Trun = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Trun.__proto__ || Object.getPrototypeOf(Trun)).call(this, root));
 
         _this.turn = 1;
-        _this.textContent = "Turn : X";
+        _this.root.textContent = "X  Turn";
         return _this;
     }
 
@@ -1170,16 +1115,16 @@ var Trun = function (_Component) {
         key: 'reset',
         value: function reset() {
             this.turn = 1;
-            this.textContent = "Turn : X";
+            this.root.textContent = "X  Turn";
         }
     }, {
         key: 'change',
         value: function change() {
             if (this.turn == 1) {
-                this.textContent = "Turn : O";
+                this.root.textContent = "O  Turn";
                 this.turn = 0;
             } else {
-                this.textContent = "Turn : X";
+                this.root.textContent = "X  Turn";
                 this.turn = 1;
             }
         }
@@ -3117,7 +3062,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".banner{\n\tpadding: 3rem;\n\n\twidth: 100%;\n\tmargin: 0px auto;\n}", ""]);
+exports.push([module.i, ".banner{\n    background: white;\n    padding: 1rem;\n    color: #484848;\n}\n\n.banner .flex {\n    display: -webkit-flex;\n    display: flex;\n    flex-direction: row;\n}", ""]);
 
 // exports
 
@@ -3131,7 +3076,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".cell {    \r\n    background: lightgreen;\r\n    margin: 1.66%;\r\n    border-color: #232323;\r\n    border-block-end-color: #232323;\r\n    border-radius: 1rem;\r\n    transition: all 0.6s;\r\n    -webkit-transition: all 0.6s;\r\n    -moz-transition: all 0.6s;\r\n    cursor: pointer;\r\n    font-family: 'Gloria Hallelujah', cursive;\r\n    font-size: 3rem;\r\n}\r\n", ""]);
 
 // exports
 
@@ -3159,7 +3104,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 16px;\n    line-height: 1.5;\n}\n\nbody {\n    background-color: #FFFFFF;\n    margin: 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    transition: background 0.6s;\n    -webkit-transition: background 0.6s;\n    -moz-transition: background 0.6s;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 520px;\n}\n", ""]);
+exports.push([module.i, "* {\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 16px;\n    line-height: 1.5;\n}\n\nbody {\n    background-color: #232323;\n    margin: 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    transition: background 0.6s;\n    -webkit-transition: background 0.6s;\n    -moz-transition: background 0.6s;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 520px;\n}\n", ""]);
 
 // exports
 
@@ -3187,7 +3132,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".role{\n\tdisplay: block;\n\tmargin: 0px;\n\twidth: 50%;\n\tfloat: left;\n\ttext-align: center;\n}", ""]);
+exports.push([module.i, ".role{\n\tdisplay: block;\n\tmargin: 0px;\n\twidth: 50%;\n\tfloat: left;\n\ttext-align: center;\n\tcolor: blue;\n\tfont-family: 'Baloo Bhaina', cursive;\n\tfont-size: 40px;\n}", ""]);
 
 // exports
 
@@ -3201,7 +3146,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".turn{\n\tdisplay: block;\n\tmargin: 0px 40vw;\n\tmargin-top: 30px;\n\twidth: 100%;\n\t\n}", ""]);
+exports.push([module.i, ".turn{\n\tdisplay: block;\n\tcolor: #bbb;\n\twidth: 50%;\n\tmargin: 30px auto 0px auto;\n\tfont-family: 'Revalia', cursive;\n\tfont-size: 30px;\n\ttext-align : center;\n}", ""]);
 
 // exports
 

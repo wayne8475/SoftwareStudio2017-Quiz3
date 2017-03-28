@@ -10,20 +10,20 @@ export default class Trun extends Component{
     constructor(root) {
         super(root);
         this.turn =1;
-        this.textContent = "Turn : X";
+        this.root.textContent = "X  Turn";
     }
     reset(){
         this.turn =1;
-        this.textContent = "Turn : X";
+        this.root.textContent = "X  Turn";
     }   
     change(){
         if(this.turn == 1)
         {
-            this.textContent = "Turn : O";
+            this.root.textContent = "O  Turn";
             this.turn = 0;
         }
         else{
-            this.textContent = "Turn : X";
+            this.root.textContent = "X  Turn";
             this.turn = 1;
         }
     } 

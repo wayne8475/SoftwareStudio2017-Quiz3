@@ -14,6 +14,6 @@ export default class Reset extends Component {
     }
 
     handleDomClick() {
-        this.fire('click');
+        this.fire('resetClick');
     }
 }
