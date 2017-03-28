@@ -33,6 +33,8 @@ But if you can layout your components as the image above, you will get at least 
 ## Example
 https://www.google.com.tw/search?q=tic+tac+toe
 
+![Structure](img/structure.png)
+
 ## Submission
 Open a new merge request when you finished your quiz. <br />
 We'll accept all merge requests so that you can open new request after the lab (after 18:00).<br />
