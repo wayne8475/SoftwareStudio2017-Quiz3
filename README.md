@@ -5,6 +5,8 @@
 ![Component](img/component.png)
 
 ## Grading
+### `0. You need to build the game use components.`
+If you don't use components, you will get 0 point.
 ### 1. Can present 'O' / 'X' when clicked cell. (10%)
 
 ### 2. Can take turn (O->X->O->X) (15%)
@@ -18,10 +20,10 @@ And you need to reset all cell when the game comes to a close.
 
 ### 6. Whole game works well. (10%)
 
-### Bonus (10% at most)
-1. Decorate the game by using some css. (10%)
-2. Decorate the game by using some animation. (10%)
-3. Notify user who wins the game.(Can't use alert / console.log) (5%)
+### Bonus (15%)
+1. Decorate the game by using some css. (10%) <br/>
+`How much score you can get is judged by us.`
+2. Notify user who wins the game when the game comes to a close. (Can't use alert / console.log) (5%)
 
 ## Example
 https://www.google.com.tw/search?q=tic+tac+toe
