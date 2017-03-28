@@ -9,11 +9,11 @@
 If you don't use components, you will get 0 point. <br/>
 And you must use webpack to compile your js code into one js file(main.bundle.js). In your html, you should import main.bundle.js ONLY.
 
-### 1. Can present 'O' / 'X' when clicked cell. (10%)
+### 1. Can present 'O' / 'X' when the cell is clicked. (10%)
 
 ### 2. Can take turn (O->X->O->X) (15%)
 
-### 3. Turn component can present which turn('O' / 'X') it is now. (15%)
+### 3. Turn component can present current turn('O' / 'X'). (15%)
 
 ### 4. Can judge the outcome and present score of two side on Role component. (win (+1) / draw (+0)) (35%)
 And you need to reset all cell when the game comes to a close.
@@ -24,7 +24,8 @@ And you need to reset all cell when the game comes to a close.
 
 ### Bonus (15%)
 1. Decorate the game by using some css. (10%) <br/>
-`How much score you can get is judged by us.`
+`The grading of css is VERY subjective.` </br>
+But if you can layout your components as the image above, you will get at least 8 points.
 2. Notify user who wins the game when the game comes to a close. (Can't use alert / console.log) (5%)
 
 ## Example
@@ -32,7 +33,7 @@ https://www.google.com.tw/search?q=tic+tac+toe
 
 ## Submission
 Open a new merge request when you finished your quiz. <br />
-We'll accept all merge requests so that you can open new request after the lab (after 17:30).<br />
+We'll accept all merge requests so that you can open new request after the lab (after 18:00).<br />
 
 ## `IMPORTANT`<br />
 From now on, we will not help you to deal with any git problems during the quiz.<br />
