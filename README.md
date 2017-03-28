@@ -24,6 +24,7 @@ And you need to reset all cell when the game comes to a close.
 ### 6. Whole game works well. (10%)
 
 ### Bonus (15%)
+#### Bonus will get 100% points for all submission before 23:59.
 1. Decorate the game by using some css. (10%) <br/>
 `The grading of css is VERY subjective.` </br>
 But if you can layout your components as the image above, you will get at least 8 points.
